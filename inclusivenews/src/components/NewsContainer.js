@@ -23,7 +23,9 @@ const NewsContainer = () => {
 
    return (
    <div>
+
         {results.map(({ title, description, url, urlToImage }) => (
+            
             <NewsArticle title={title} description={description} url={url} urlToImage={urlToImage} />
         ))}
    </div>
