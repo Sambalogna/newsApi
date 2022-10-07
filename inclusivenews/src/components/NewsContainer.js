@@ -6,47 +6,53 @@ import API from '../utils/API';
 
 const NewsContainer = () => {
     const [results, setResults] = useState([]);
-    const [excludes, setToExclude] = useState([]);
+    //takes query from Exclude: and sets the exclude keyword
+    const [exclude, setToExclude] = useState([]);
 
     //api call
     useEffect(() => {
         const getNews = async () => {
             const res = await Axios.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=fd913d189a4b46a39fa311dfd7df9e0b");
             setResults(res.data.articles);
-            //console.log(res);
+            console.log(res);
             //console.log(res.data.articles)
         }
         getNews();    
     }, []);
 
-    //filter example
-    // let titleArr = results
-    // const filterArr = titleArr.filter(news => news.title === "Herschel Walker's Latest Abortion Denial Still Makes No Sense - The Daily Beast")
-    // console.log(filterArr)
-    // console.log(titleArr)
+    
+   
 
-    //filter function on query 
-    const filterSearch = () => 
-         API.getNews()
-            .then((res) => console.log(res))
-            .catch((err)=> console.log(err))
+    //filter function on exclude query 
+    const filterSearch = (query) => {
+        //filter example
+        //let results be resultsArr
+        let resultsArr = results
+        console.log(resultsArr)
 
+        //put all not query into filteredArr
+        const filteredArr = resultsArr.filter(news => news.title != query)
+        console.log(filteredArr)
+        setResults(filteredArr)
+       
+    }
+     
     useEffect(() => {
-        filterSearch();
+        filterSearch('');
     }, [])
    
     const handleInputChange = (e) => setToExclude(e.target.value)
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        filterSearch()
+        filterSearch(exclude)
 
     }
 
    return (
    <div>
         <FilterForm
-            value={excludes}
+            value={exclude}
             handleInputChange={handleInputChange}
             handleFormSubmit={handleFormSubmit} 
         />
