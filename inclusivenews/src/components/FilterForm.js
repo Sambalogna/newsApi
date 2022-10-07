@@ -1,22 +1,22 @@
 import React from 'react';
 
-function FilterForm(filter) {
+function FilterForm(props) {
   return (
     <form>
       <div className="form-group">
-        <label htmlFor="filter">Filter:</label>
+        <label htmlFor="exclude">Exclude:</label>
         <input
-          onChange={filter.handleInputChange}
-          value={filter.value}
-          name="filter"
+          onChange={props.handleInputChange}
+          value={props.value}
+          name="exclude"
           type="text"
           className="form-control"
-          placeholder="Filter out the Junk"
-          id="filter"
+          placeholder="Filter your search"
+          id="exclude"
         />
         <br />
         <button
-          onClick={filter.handleFormSubmit}
+          onClick={props.handleFormSubmit}
           className="btn btn-primary"
           type="submit"
         >
