@@ -34,13 +34,13 @@ const NewsContainer = () => {
             //console.log(element.title)
             let titleStr = element.title.toLowerCase();
             if(titleStr.includes(query)){
-                console.log('thats got the filtered word in it')
-                console.log(titleStr)
+                console.log('taking out: ' + titleStr)
+                //console.log(titleStr)
                 takeOutNews +=titleStr
             }
            //console.log(filteredStr)
         })
-        console.log(takeOutNews)
+        //console.log(takeOutNews)
         //put all not query into filteredArr
         const filteredArr = resultsArr
             .filter(news => news.title.toLowerCase() != takeOutNews)
