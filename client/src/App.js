@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 //Apollo Client is a library that allows us to handle data using the GraphQL frontend, 
