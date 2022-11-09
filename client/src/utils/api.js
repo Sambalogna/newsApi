@@ -1,5 +1,6 @@
 export default {
-    newsFeed: () => {
-        return fetch('/api/newsfeed').then(res=>res.json)
+    newsFeed: async () => {
+        const res = await fetch('/api/newsfeed')
+        return res.json()
     }
 }
