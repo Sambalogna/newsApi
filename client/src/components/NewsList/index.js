@@ -1,5 +1,5 @@
 import React from "react";
-//import "./newsArticle.css"
+import "./newsList.css"
 const NewsList = ({ title, description, url, urlToImage }) => {
     return (
         <div className="news-article">

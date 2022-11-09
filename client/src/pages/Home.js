@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import NewsList from '../components/NewsList'
+import NewsList from '../components/NewsList/index'
 //import the useQuery Hook from apollo/client to return our data
 //import {useQuery} from '@apollo/client';
 //import the query into the component where we want the data to be displayed
@@ -12,18 +12,19 @@ const Home = () => {
 
     useEffect(()=> {
         api.newsFeed().then((data)=> {
-            console.log(data)
-            //setResults(data.data)
+            //console.log(data)
+            setResults(data)
         })
     }, [])
-
+    
     return (
         <main>
             <div className="flex-row justify-center"> 
                 <div className='col-12 col-md-10 my-3'>
-                {/* {results.map(({ title, description, url, urlToImage }) => ( 
+                {/* {console.log(results)} */}
+                {results?.map(({ title, description, url, urlToImage }) => ( 
                 <NewsList title={title} description={description} url={url} urlToImage={urlToImage} />
-                ))} */}
+                ))}
                 </div>
             </div>
         </main>
