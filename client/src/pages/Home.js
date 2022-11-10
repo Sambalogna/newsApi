@@ -42,7 +42,7 @@ const Home = () => {
         //console.log(resultsArr)
         //console.log(results)
         //analyzes each title for query
-        let takeOutNews = '';
+        let takeOutNews = [];
         resultsArr.forEach(element => {
             //console.log(element.title)
             let titleStr = element.title.toLowerCase();
@@ -72,7 +72,7 @@ const Home = () => {
                     />
                     {/* {console.log(results)} */}
                     {results?.map(({ title, description, url, urlToImage }) => ( 
-                    <NewsList title={title} description={description} url={url} urlToImage={urlToImage} />
+                    <NewsList key={title} title={title} description={description} url={url} urlToImage={urlToImage} />
                     ))}
                 </div>
             </div>
