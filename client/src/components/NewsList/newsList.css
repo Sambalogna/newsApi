@@ -1,0 +1,9 @@
+.news-article {
+    width: 500px;
+    padding: 20px;
+    border: 1px solid;
+    margin-bottom: 20px;
+}
+.news-image {
+    width: 400px;
+}
