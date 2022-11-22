@@ -15,7 +15,7 @@ const Home = () => {
     //fetch News feed and set result
     useEffect(()=> {
         api.newsFeed().then((data)=> {
-            //console.log(data)
+            console.log(data)
             setResults(data)
         })
     }, [])
@@ -42,7 +42,7 @@ const Home = () => {
         //console.log(resultsArr)
         //console.log(results)
         //analyzes each title for query
-        let takeOutNews = [];
+        let takeOutNews = '';
         resultsArr.forEach(element => {
             //console.log(element.title)
             let titleStr = element.title.toLowerCase();
