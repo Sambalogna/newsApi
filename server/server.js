@@ -26,7 +26,7 @@ const getNews = async () => {
 app.get('/api/newsfeed', (req, res) => {
   getNews()
       .then((news) => {
-          console.log(news)
+          //console.log(news)
           res.json(news)
       });
 })

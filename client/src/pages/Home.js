@@ -15,50 +15,38 @@ const Home = () => {
     //fetch News feed and set result
     useEffect(()=> {
         api.newsFeed().then((data)=> {
-            //console.log(data)
+            console.log(data)
             setResults(data)
         })
     }, [])
+    // useEffect(()=>{
 
-    //set filterSearch to empty string -- no exclusions
-    useEffect(() => {
-        filterSearch('');
-    }, [])
+    // }, [results])
+
+    //Filter function on exclude query
+    //TODO: create factory function that inputs array to continuously filter multiple instances 
+    //currently breaks on double instance of exclusion
     
-    //handle value of input and change state of exclude
+    const filterSearch = (query) => {
+        let resultArr = results 
+        for(let i=0; i<resultArr.length; i++) {
+        if(resultArr[i].title.toLowerCase().includes(query)){
+        //console.log(resultArr[i])
+        resultArr.splice(i,1)
+        i--
+        }
+        }
+        let filteredArr = resultArr
+        console.log(filteredArr)
+        setResults([...filteredArr])   
+    }
+        //handle value of input and change state of exclude
     const handleInputChange = (e) => setToExclude(e.target.value)
 
     //prevent default and handle filter function initialization
     const handleFormSubmit = (e) => {
         e.preventDefault();
         filterSearch(exclude)
-    }
-
-    //Filter function on exclude query
-    //TODO: create factory function that inputs array to continuously filter multiple instances 
-    //currently breaks on double instance of exclusion
-    const filterSearch = (query) => {
-        let resultsArr = results
-        //console.log(resultsArr)
-        //console.log(results)
-        //analyzes each title for query
-        let takeOutNews = [];
-        resultsArr.forEach(element => {
-            //console.log(element.title)
-            let titleStr = element.title.toLowerCase();
-            if(titleStr.includes(query)){
-                console.log('taking out: ' + titleStr)
-                //console.log(titleStr)
-                takeOutNews +=titleStr
-            }
-           //console.log(filteredStr)
-        })
-        //console.log(takeOutNews)
-        //put all not query into filteredArr
-        const filteredArr = resultsArr
-            .filter(news => news.title.toLowerCase() != takeOutNews)
-        //console.log(filteredArr)
-        setResults(filteredArr)   
     }
 
     return (
