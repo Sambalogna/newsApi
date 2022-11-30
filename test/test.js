@@ -56,38 +56,30 @@ const testArr = [
 //query for mourning takes out single instance
 //let query = "mourning"
 
-let query = "FTX"
-// let takeOutNews = [];
-// let filteredArr = []
-//         testArr.forEach(element => {
-//             //console.log(element.title)
-//             let titleStr = element.title.toLowerCase();
-//             if(titleStr.includes(query)){
-                
-//                 //console.log('taking out: ' + titleStr)
-//                 //console.log(titleStr)
-//                 filteredArr.push(titleStr)
-//             }
-            
-            
-//         })
-        //console.log(filteredArr)
-            //only filters single instance
-            //if filter has multiple instances nothing is added to the array
-            //const filteredArr = testArr
-            //testArr.filter(news => news.title.toLowerCase() == filteredArr)
-        //console.log(testArr)
+// let query = "ftx"
+//         let resultArr = testArr 
+//         for(i=0; i<testArr.length; i++) {
+//         if(testArr[i].title.toLowerCase().includes(query)){
+//         //console.log(resultArr[i])
+//         resultArr.splice(i,1)
+//         i--
+//         }
+//         //console.log(testArr[i])
+//         //let resultArr = testArr.filter(news => news.title.toLowerCase() != filteredArr)
+//         // return resultArr
+//         }
+//         //console.log(testArr)
+//         console.log(resultArr)
+    
+
+let query = "ftx"
         let resultArr = testArr 
-        for(i=0; i<testArr.length; i++) {
-        if(testArr[i].title.includes(query)){
+        for(i=0; i<resultArr.length; i++) {
+        if(resultArr[i].title.toLowerCase().includes(query)){
         //console.log(resultArr[i])
         resultArr.splice(i,1)
         i--
         }
-        //console.log(testArr[i])
-        //let resultArr = testArr.filter(news => news.title.toLowerCase() != filteredArr)
-        // return resultArr
         }
         //console.log(testArr)
         console.log(resultArr)
-    
