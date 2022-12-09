@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 //import the useQuery Hook from apollo/client to return our data
 //import {useQuery} from '@apollo/client';
 //import the query into the component where we want the data to be displayed
@@ -36,6 +35,7 @@ const Home = () => {
         i--
         }
         }
+        
         let filteredArr = resultArr
         console.log(filteredArr)
         setResults([...filteredArr])   
@@ -47,6 +47,11 @@ const Home = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         filterSearch(exclude)
+        
+        //addExclusion(exlude)
+    }
+    function addExclusion(){
+        
     }
 
     return (
@@ -60,7 +65,7 @@ const Home = () => {
                     />
                     {/* {console.log(results)} */}
                     {results?.map(({ title, description, url, urlToImage }) => ( 
-                    <NewsList key={title} title={title} description={description} url={url} urlToImage={urlToImage} />
+                    <NewsList key={title} title={title} description={description} url={url} urlToImage={urlToImage}  />
                     ))}
                 </div>
             </div>
